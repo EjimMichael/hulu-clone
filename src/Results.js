@@ -5,12 +5,14 @@ import axios from './axios';
 import FlipMove from 'react-flip-move';
 
 function Results({ selectedOption }) {
+
     const [movies, setMovies] = useState([]);
 
         useEffect(() => {
             async function fetchData() {
                 const request = await axios.get(selectedOption);
                 setMovies(request.data.results);
+                console.log(request.data.results);
             
                 return request;
             }
